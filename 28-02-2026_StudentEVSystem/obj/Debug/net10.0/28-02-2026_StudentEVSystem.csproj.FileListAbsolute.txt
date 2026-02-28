@@ -1,0 +1,14 @@
+D:\capg training\28-02-2026_StudentEVSystem\bin\Debug\net10.0\28-02-2026_StudentEVSystem.exe
+D:\capg training\28-02-2026_StudentEVSystem\bin\Debug\net10.0\28-02-2026_StudentEVSystem.deps.json
+D:\capg training\28-02-2026_StudentEVSystem\bin\Debug\net10.0\28-02-2026_StudentEVSystem.runtimeconfig.json
+D:\capg training\28-02-2026_StudentEVSystem\bin\Debug\net10.0\28-02-2026_StudentEVSystem.dll
+D:\capg training\28-02-2026_StudentEVSystem\bin\Debug\net10.0\28-02-2026_StudentEVSystem.pdb
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.AssemblyInfoInputs.cache
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.AssemblyInfo.cs
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.csproj.CoreCompileInputs.cache
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.dll
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\refint\28-02-2026_StudentEVSystem.dll
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.pdb
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\28-02-2026_StudentEVSystem.genruntimeconfig.cache
+D:\capg training\28-02-2026_StudentEVSystem\obj\Debug\net10.0\ref\28-02-2026_StudentEVSystem.dll
