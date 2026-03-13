@@ -1,0 +1,28 @@
+<input id="email" placeholder="Enter Email">
+<button onclick="validateForm()">Submit</button>
+
+<script>
+function validateForm() {
+    const email = document.getElementById("email").value;
+
+    if (!email.includes("@")) {
+        console.warn("WARN: Invalid Email Entered", email);
+
+        // Example: send log to remote server
+        fetch("https://example.com/logs", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                level: "WARN",
+                message: "Invalid Email Entered",
+                email: email,
+                timestamp: new Date().toISOString()
+            })
+        })
+        .then(() => console.log("Validation error logged remotely"))
+        .catch(err => console.error("Error logging:", err));
+
+        alert("Invalid email");
+    }
+}
+</script>
