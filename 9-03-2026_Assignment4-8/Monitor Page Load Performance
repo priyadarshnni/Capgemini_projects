@@ -1,0 +1,24 @@
+<script>
+const start = performance.now();
+
+window.onload = function() {
+    const end = performance.now();
+    const loadTime = end - start;
+
+    console.log("INFO: Page Load Time:", loadTime + " ms");
+
+    // Example: send log to remote server
+    fetch("https://example.com/logs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            level: "INFO",
+            message: "Page Load Time",
+            duration: loadTime + " ms",
+            timestamp: new Date().toISOString()
+        })
+    })
+    .then(() => console.log("Page load time logged remotely"))
+    .catch(err => console.error("Error logging:", err));
+};
+</script>
