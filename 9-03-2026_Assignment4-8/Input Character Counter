@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<textarea id="message"></textarea>
+<p id="count">Characters: 0</p>
+
+<script>
+document.getElementById("message").addEventListener("keyup", (e) => {
+    let length = e.target.value.length;
+    document.getElementById("count").innerText = "Characters: " + length;
+});
+</script>
+
+</body>
+</html>
