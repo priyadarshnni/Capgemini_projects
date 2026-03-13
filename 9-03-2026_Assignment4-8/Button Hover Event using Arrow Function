@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<button id="submitBtn">Submit</button>
+
+<script>
+document.getElementById("submitBtn").addEventListener("mouseover", () => {
+    console.log("Mouse hovered over submit button");
+    alert("You hovered over the Submit button!");
+});
+</script>
+
+</body>
+</html>
