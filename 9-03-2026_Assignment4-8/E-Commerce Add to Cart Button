@@ -1,0 +1,11 @@
+<button id="addCart">Add to Cart</button>
+<p id="msg"></p>
+
+<script>
+document.getElementById("addCart").addEventListener("click", function() {
+    let productName = "Sample Product";
+    console.log(productName + " added to cart");
+    document.getElementById("msg").innerHTML =
+        productName + " successfully added to cart";
+});
+</script>
