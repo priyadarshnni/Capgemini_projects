@@ -1,0 +1,42 @@
+<button onclick="trackClick('Buy Now')">Buy Now</button>
+<button onclick="trackClick('Add Wishlist')">Add Wishlist</button>
+
+<p>Click Stats:</p>
+<ul>
+  <li>Buy Now: <span id="buyCount">0</span></li>
+  <li>Add Wishlist: <span id="wishCount">0</span></li>
+</ul>
+
+<script>
+let stats = {
+  "Buy Now": 0,
+  "Add Wishlist": 0
+};
+
+function trackClick(action) {
+    stats[action]++;
+
+    console.log("INFO: User Action:", action, "Total:", stats[action]);
+
+    if (action === "Buy Now") {
+        document.getElementById("buyCount").innerText = stats[action];
+    } else if (action === "Add Wishlist") {
+        document.getElementById("wishCount").innerText = stats[action];
+    }
+
+    // Example: send log to remote server
+    fetch("https://example.com/logs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            level: "INFO",
+            message: "User Action",
+            action: action,
+            count: stats[action],
+            timestamp: new Date().toISOString()
+        })
+    })
+    .then(() => console.log("Log sent successfully"))
+    .catch(err => console.error("Error sending log:", err));
+}
+</script>
