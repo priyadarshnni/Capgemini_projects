@@ -1,0 +1,10 @@
+<input type="text" id="username" placeholder="Enter username">
+
+<script>
+document.getElementById("username").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        console.log("Login attempt triggered");
+        alert("Submitting login form");
+    }
+});
+</script>
