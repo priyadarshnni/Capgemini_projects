@@ -1,0 +1,71 @@
+<main class="container">
+  <h1>Hospital Appointment Booking</h1>
+
+  <form #appointmentForm="ngForm" (ngSubmit)="submitAppointment()" class="booking-form">
+    <label>
+      Patient Name
+      <input
+        type="text"
+        name="patientName"
+        [(ngModel)]="patientName"
+        required
+        placeholder="Enter patient name"
+      />
+    </label>
+
+    <label>
+      Doctor Selection
+      <select name="selectedDoctor" [(ngModel)]="selectedDoctor" required>
+        <option value="" disabled>Select doctor</option>
+        @for (doctor of doctors; track doctor) {
+          <option [value]="doctor">{{ doctor }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Appointment Date
+      <input
+        type="date"
+        name="appointmentDate"
+        [(ngModel)]="appointmentDate"
+        [min]="minDate"
+        required
+      />
+    </label>
+
+    <label>
+      Consultation Type
+      <select name="consultationType" [(ngModel)]="consultationType" required>
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+      </select>
+    </label>
+
+    <label>
+      Symptoms
+      <textarea
+        name="symptoms"
+        [(ngModel)]="symptoms"
+        rows="4"
+        placeholder="Describe symptoms"
+      ></textarea>
+    </label>
+
+    <button type="submit" [disabled]="appointmentForm.invalid">Book Appointment</button>
+  </form>
+
+  <section class="summary">
+    <h2>Live Appointment Summary</h2>
+    <p><strong>Patient:</strong> {{ patientName || 'Not provided' }}</p>
+    <p><strong>Doctor:</strong> {{ selectedDoctor || 'Not selected' }}</p>
+    <p><strong>Date:</strong> {{ appointmentDate || 'Not selected' }}</p>
+    <p><strong>Consultation:</strong> {{ consultationType }}</p>
+    <p><strong>Symptoms:</strong> {{ symptoms || 'Not provided' }}</p>
+    <p><strong>Consultation Fee:</strong> ₹{{ consultationFee }}</p>
+  </section>
+
+  @if (confirmationMessage) {
+    <p class="confirmation">{{ confirmationMessage }}</p>
+  }
+</main>

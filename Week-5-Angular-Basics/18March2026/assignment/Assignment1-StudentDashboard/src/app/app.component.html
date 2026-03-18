@@ -1,0 +1,109 @@
+<div class="dashboard-container">
+  <!-- Header -->
+  <header class="dashboard-header">
+    <h1>{{ title }}</h1>
+  </header>
+
+  <!-- Statistics Cards -->
+  <div class="stats-container">
+    <div class="stat-card">
+      <h3>Total Students</h3>
+      <p class="stat-value">{{ getTotalStudents() }}</p>
+    </div>
+    <div class="stat-card success">
+      <h3>Passed</h3>
+      <p class="stat-value">{{ getPassedStudents() }}</p>
+    </div>
+    <div class="stat-card danger">
+      <h3>Failed</h3>
+      <p class="stat-value">{{ getFailedStudents() }}</p>
+    </div>
+    <div class="stat-card topper">
+      <h3>Toppers</h3>
+      <p class="stat-value">{{ getToppersCount() }}</p>
+    </div>
+  </div>
+
+  <!-- Student Table -->
+  <div class="table-container">
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Student Name</th>
+          <th>Marks</th>
+          <th>Grade</th>
+          <th>Status</th>
+          <th>Grade Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- *ngFor Directive: Loop through all students -->
+        <tr *ngFor="let student of students"
+            [ngClass]="{'topper-row': student.isTopper, 'fail-row': !student.isPass}">
+
+          <td>{{ student.id }}</td>
+
+          <!-- ngClass Directive: Highlight toppers with special styling -->
+          <td [ngClass]="{'topper-name': student.isTopper}">
+            {{ student.name }}
+            <span *ngIf="student.isTopper" class="trophy"></span>
+          </td>
+
+          <!-- ngStyle Directive: Color based on pass/fail status -->
+          <td [ngStyle]="{
+            'color': student.isPass ? '#28a745' : '#dc3545',
+            'font-weight': student.isTopper ? 'bold' : 'normal',
+            'font-size': student.isTopper ? '18px' : '16px'
+          }">
+            {{ student.marks }}
+          </td>
+
+          <!-- Display Grade with styling -->
+          <td>
+            <span class="grade-badge" [ngClass]="{
+              'grade-a': student.grade === 'A',
+              'grade-b': student.grade === 'B',
+              'grade-c': student.grade === 'C',
+              'grade-d': student.grade === 'D',
+              'grade-f': student.grade === 'F'
+            }">
+              {{ student.grade }}
+            </span>
+          </td>
+
+          <!-- *ngIf Directive: Show Pass/Fail conditionally -->
+          <td>
+            <span *ngIf="student.isPass" class="status-badge pass">✓ PASS</span>
+            <span *ngIf="!student.isPass" class="status-badge fail">✗ FAIL</span>
+          </td>
+
+          <!-- ngSwitch Directive: Display grade description based on grade -->
+          <td>
+            <div [ngSwitch]="student.grade">
+              <span *ngSwitchCase="'A'" class="grade-desc excellent">
+                Excellent Performance
+              </span>
+              <span *ngSwitchCase="'B'" class="grade-desc good">
+                Good Performance
+              </span>
+              <span *ngSwitchCase="'C'" class="grade-desc average">
+                Average Performance
+              </span>
+              <span *ngSwitchCase="'D'" class="grade-desc below-average">
+                Below Average
+              </span>
+              <span *ngSwitchCase="'F'" class="grade-desc failed">
+                Failed - Needs Improvement
+              </span>
+              <span *ngSwitchDefault class="grade-desc">Unknown</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<router-outlet />

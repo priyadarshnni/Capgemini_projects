@@ -1,0 +1,16 @@
+<h1>Role-Based Directive Demo</h1>
+
+<div>
+  <h2>Current User Role: {{currentUserRole}}</h2>
+  <button (click)="toggleRole()">Toggle Role</button>
+</div>
+
+<div *appRoleBased="currentUserRole">
+  <h3>Admin Content</h3>
+  <p>This content is only visible to admin users</p>
+</div>
+
+<div>
+  <h3>Public Content</h3>
+  <p>This content is visible to everyone</p>
+</div>
