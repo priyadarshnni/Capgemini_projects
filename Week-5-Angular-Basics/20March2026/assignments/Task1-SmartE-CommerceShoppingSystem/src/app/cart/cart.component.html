@@ -1,0 +1,64 @@
+<div class="cart-page">
+  <div class="page-header">
+    <div>
+      <h1>Shopping Cart</h1>
+      <p class="subtitle">{{ cartService.totalItems() }} item(s) in your cart</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/products" class="back-btn">Continue Shopping</a>
+      @if (cartService.items().length > 0) {
+        <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
+      }
+    </div>
+  </div>
+
+  @if (cartService.items().length === 0) {
+    <div class="empty-cart">
+      <h2>Your cart is empty</h2>
+      <p>Add some products to get started.</p>
+      <a routerLink="/products" class="shop-btn">Browse Products</a>
+    </div>
+  } @else {
+    <div class="cart-layout">
+      <div class="cart-items">
+        @for (item of cartService.items(); track item.product.id) {
+          <div class="cart-item">
+            <div class="item-details">
+              <h3>{{ item.product.name }}</h3>
+              <span class="item-category">{{ item.product.category }}</span>
+              <p class="item-price">Rs. {{ item.product.price | number }} each</p>
+            </div>
+            <div class="item-controls">
+              <div class="qty-controls">
+                <button class="qty-btn" (click)="decrement(item)">-</button>
+                <span class="qty">{{ item.quantity }}</span>
+                <button class="qty-btn" (click)="increment(item)">+</button>
+              </div>
+              <p class="item-total">Rs. {{ getItemTotal(item) | number }}</p>
+              <button class="remove-btn" (click)="remove(item.product.id)">Remove</button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-lines">
+          @for (item of cartService.items(); track item.product.id) {
+            <div class="summary-line">
+              <span>{{ item.product.name }} x {{ item.quantity }}</span>
+              <span>Rs. {{ getItemTotal(item) | number }}</span>
+            </div>
+          }
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span class="total-amount">Rs. {{ cartService.totalPrice() | number }}</span>
+        </div>
+        <a routerLink="/checkout" class="checkout-btn">Proceed to Checkout</a>
+        <a routerLink="/dashboard" class="dashboard-link">View Dashboard</a>
+      </div>
+    </div>
+  }
+</div>

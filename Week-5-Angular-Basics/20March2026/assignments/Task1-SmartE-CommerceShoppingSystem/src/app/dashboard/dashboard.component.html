@@ -1,0 +1,73 @@
+<div class="dashboard-page">
+  <div class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p class="subtitle">Cart Summary</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/products" class="nav-link">Products</a>
+      <a routerLink="/cart" class="nav-link">Cart ({{ cartService.totalItems() }})</a>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val">{{ cartService.totalItems() }}</div>
+      <div class="stat-label">Total Items</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">{{ cartService.items().length }}</div>
+      <div class="stat-label">Unique Products</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">Rs. {{ cartService.totalPrice() | number }}</div>
+      <div class="stat-label">Cart Value</div>
+    </div>
+  </div>
+
+  @if (cartService.items().length === 0) {
+    <div class="empty-dashboard">
+      <h2>No items in cart</h2>
+      <p>Add products to your cart to see a summary here.</p>
+      <a routerLink="/products" class="shop-btn">Browse Products</a>
+    </div>
+  } @else {
+    <div class="chart-card">
+      <h2>Cart Items</h2>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of cartService.items(); track item.product.id; let i = $index) {
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.product.name }}</td>
+              <td>{{ item.product.category }}</td>
+              <td>Rs. {{ item.product.price | number }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>Rs. {{ getItemTotal(item.product.price, item.quantity) | number }}</td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5"><strong>Grand Total</strong></td>
+            <td><strong>Rs. {{ cartService.totalPrice() | number }}</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="cta-row">
+      <a routerLink="/checkout" class="cta-btn">Proceed to Checkout</a>
+    </div>
+  }
+</div>

@@ -1,0 +1,48 @@
+<div class="parent-container">
+  <h2>📦 Order Management (Parent Component)</h2>
+
+  <div class="order-info">
+    <h3>Current Order</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">Order ID:</span>
+        <span class="value">{{ order.id }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Product:</span>
+        <span class="value">{{ order.productName }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Status:</span>
+        <span class="value status" [ngClass]="order.status === 'Delivered' ? 'delivered' : 'pending'">
+          {{ order.status }}
+        </span>
+      </div>
+      <div class="info-item">
+        <span class="label">Price:</span>
+        <span class="value price">₹{{ order.price }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-primary" (click)="updateStatus()">
+      🔄 Update Status
+    </button>
+    <button class="btn btn-danger" (click)="toggleChild()">
+      {{ destroyChild ? '✅ Show Child Component' : '❌ Hide Child Component' }}
+    </button>
+  </div>
+
+  <div class="child-section" *ngIf="!destroyChild">
+    <div class="section-header">
+      <h3>👶 Child Component (Watch Lifecycle Hooks)</h3>
+      <p class="hint">Child component receives order data and logs all lifecycle events below</p>
+    </div>
+    <app-order-child [orderData]="order"></app-order-child>
+  </div>
+
+  <div class="info-box" *ngIf="destroyChild">
+    <p>ℹ️ Child component is currently hidden. Click "Show Child Component" to see lifecycle hooks in action.</p>
+  </div>
+</div>

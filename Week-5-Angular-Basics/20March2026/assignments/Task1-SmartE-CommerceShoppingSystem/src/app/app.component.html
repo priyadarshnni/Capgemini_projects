@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <a routerLink="/products" class="brand">ShopSmart</a>
+  <div class="nav-links">
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+      Cart
+      @if (cartService.totalItems() > 0) {
+        <span class="nav-badge">{{ cartService.totalItems() }}</span>
+      }
+    </a>
+    <a routerLink="/checkout" routerLinkActive="active">Checkout</a>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  </div>
+</nav>
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="footer">
+  <p>ShopSmart - Smart E-Commerce Shopping System | Angular 19</p>
+</footer>

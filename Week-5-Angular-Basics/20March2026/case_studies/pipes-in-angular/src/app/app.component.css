@@ -1,0 +1,45 @@
+.container {
+	max-width: 760px;
+	margin: 24px auto;
+	padding: 20px;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	background: #f8fafc;
+	font-family: Arial, sans-serif;
+}
+
+h2 {
+	margin: 0 0 12px;
+	color: #1e293b;
+}
+
+.subtext {
+	margin-bottom: 20px;
+	color: #475569;
+}
+
+.order-card,
+.card {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 12px 14px;
+	margin-bottom: 12px;
+}
+
+.order-card p,
+.card p {
+	margin: 6px 0;
+}
+
+.highlight {
+	color: #0f766e;
+	font-weight: 700;
+}
+
+.final-price {
+	margin-top: 14px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #0f172a;
+}
