@@ -1,0 +1,43 @@
+<div style="padding:20px">
+
+  <h2>Transactions</h2>
+
+  <!-- FILTER -->
+  <input type="date" [(ngModel)]="selectedDate">
+  <button (click)="filterByDate()">Filter</button>
+
+  <!-- ADD -->
+  <h3>Add Transaction</h3>
+
+  <input type="date" [(ngModel)]="newTransaction.date">
+  <input type="text" placeholder="Description" [(ngModel)]="newTransaction.description">
+  <input type="number" placeholder="Type (0/1)" [(ngModel)]="newTransaction.type">
+  <input type="number" placeholder="Amount" [(ngModel)]="newTransaction.amount">
+  <input type="text" placeholder="Balance" [(ngModel)]="newTransaction.balance">
+
+  <button (click)="addTransaction()">Add</button>
+
+  <!-- TABLE -->
+  <table border="1" width="100%" style="margin-top:20px">
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th (click)="sortByAmount()" style="cursor:pointer">Amount</th>
+      <th>Balance</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let t of filteredTransactions">
+      <td>{{ t.date | date:'yyyy-MM-dd' }}</td>
+      <td>{{ t.description }}</td>
+      <td>{{ t.type === 0 ? 'Credit' : 'Debit' }}</td>
+      <td>{{ t.amount }}</td>
+      <td>{{ t.balance }}</td>
+      <td>
+        <button (click)="deleteTransaction(t.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

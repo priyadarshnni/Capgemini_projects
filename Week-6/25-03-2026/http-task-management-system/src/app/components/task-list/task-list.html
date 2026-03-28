@@ -1,0 +1,18 @@
+<h2>Task Manager</h2>
+
+<app-task-form (taskAdded)="refresh()"></app-task-form>
+
+<hr>
+
+<ul>
+  <li *ngFor="let task of tasks">
+    
+    <input type="checkbox"
+           [checked]="task.completed"
+           (change)="toggle(task)">
+
+    {{ task.title }}
+
+    <button (click)="delete(task.id!)">Delete</button>
+  </li>
+</ul>
