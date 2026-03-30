@@ -1,0 +1,135 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.10);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 24px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid #e0e7ff;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #1e1b4b;
+}
+
+.input:focus { border-color: #6366f1; }
+
+.add-btn {
+  padding: 12px 22px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.add-btn:hover { background: #4f46e5; transform: translateY(-1px); }
+.add-btn:active { transform: translateY(0); }
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  text-align: center;
+  color: #c4b5fd;
+  font-size: 0.9rem;
+  padding: 20px 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid #e0e7ff;
+  border-radius: 10px;
+  background: #f9fafb;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.task-item.done {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  opacity: 0.75;
+}
+
+.checkbox {
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #1e1b4b;
+  transition: all 0.2s;
+}
+
+.task-item.done .task-text {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover { opacity: 1; transform: scale(1.2); }
+
+.summary {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
