@@ -1,0 +1,389 @@
+.App {
+  text-align: center;
+}
+
+/* ===========================
+   Topic: Global UI Styling
+   - Cards, forms, tables, alerts, loaders
+   =========================== */
+
+:root {
+  --bg: #0b1220;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-2: rgba(255, 255, 255, 0.08);
+  --text: #e8eefc;
+  --muted: rgba(232, 238, 252, 0.72);
+  --primary: #4f8cff;
+  --danger: #ff4f6d;
+  --border: rgba(255, 255, 255, 0.14);
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+body {
+  background: radial-gradient(circle at 20% 10%, rgba(79, 140, 255, 0.35), transparent 35%),
+    radial-gradient(circle at 90% 10%, rgba(255, 79, 109, 0.25), transparent 40%),
+    var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 880px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.card-wide {
+  max-width: 1120px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 8px 0 14px;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card-2);
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.gap {
+  gap: 12px;
+}
+
+.gap-sm {
+  gap: 8px;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: rgba(79, 140, 255, 0.18);
+  border-color: rgba(79, 140, 255, 0.5);
+}
+
+.btn-danger {
+  background: rgba(255, 79, 109, 0.16);
+  border-color: rgba(255, 79, 109, 0.5);
+  color: #ffd4dc;
+}
+
+.btn-small {
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 650;
+  color: rgba(232, 238, 252, 0.9);
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: rgba(79, 140, 255, 0.7);
+}
+
+.input-error {
+  border-color: rgba(255, 79, 109, 0.8);
+}
+
+.field-error {
+  color: #ffd4dc;
+  font-size: 13px;
+}
+
+.alert-box {
+  margin: 14px 0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.alert-success {
+  background: rgba(79, 140, 255, 0.14);
+  border-color: rgba(79, 140, 255, 0.45);
+}
+
+.alert-error {
+  background: rgba(255, 79, 109, 0.14);
+  border-color: rgba(255, 79, 109, 0.45);
+}
+
+.alert-message {
+  font-weight: 700;
+}
+
+.alert-close {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.loader-wrap {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(79, 140, 255, 0.9);
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-text {
+  font-weight: 700;
+}
+
+.crud-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.panel-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+  text-align: left;
+}
+
+.table th {
+  color: rgba(232, 238, 252, 0.86);
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+.th-actions {
+  width: 140px;
+}
+
+.td-actions {
+  width: 160px;
+}
+
+.td-actions .row {
+  justify-content: flex-start;
+}
+
+.row.gap-sm {
+  justify-content: flex-start;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid var(--border);
+}
+
+.badge-admin {
+  background: rgba(255, 79, 109, 0.14);
+  border-color: rgba(255, 79, 109, 0.5);
+  color: #ffd4dc;
+}
+
+.badge-employee {
+  background: rgba(79, 140, 255, 0.14);
+  border-color: rgba(79, 140, 255, 0.5);
+  color: #d6e4ff;
+}
+
+.note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.empty {
+  padding: 14px 10px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.field-label {
+  color: var(--muted);
+  font-weight: 750;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.field-value {
+  font-weight: 850;
+}
+
+.hint {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+.hint-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hint-key {
+  display: inline-block;
+  font-weight: 900;
+  color: rgba(232, 238, 252, 0.95);
+}
+
+.hint-val {
+  font-weight: 700;
+  color: rgba(232, 238, 252, 0.78);
+}
+
+@media (max-width: 900px) {
+  .crud-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
