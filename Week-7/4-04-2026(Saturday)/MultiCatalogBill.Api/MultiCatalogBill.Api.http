@@ -1,0 +1,6 @@
+@MultiCatalogBill.Api_HostAddress = http://localhost:5267
+
+GET {{MultiCatalogBill.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
