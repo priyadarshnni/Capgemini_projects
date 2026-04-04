@@ -1,3 +1,12 @@
+// =============================================================================
+// ReportsController — read-only analytics endpoints
+// =============================================================================
+// Base route: /api/Reports
+//
+// Topic: Daily summary — counts finalized bills and sums totals for one UTC
+//        calendar day (FinalizedAtUtc range). Drafts are excluded.
+// =============================================================================
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MultiCatalogBill.Api.Contracts;

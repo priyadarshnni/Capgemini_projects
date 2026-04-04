@@ -1,3 +1,10 @@
+// =============================================================================
+// ApiDtos — request/response shapes (System.Text.Json)
+// =============================================================================
+// JsonStringEnumConverter on enum properties matches Program.cs global option;
+// records are immutable payloads for controllers.
+// =============================================================================
+
 using System.Text.Json.Serialization;
 using MultiCatalogBill.Api.Models;
 

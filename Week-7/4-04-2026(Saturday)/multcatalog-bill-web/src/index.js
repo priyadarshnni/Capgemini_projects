@@ -1,3 +1,5 @@
+// CRA entry: mounts <App /> into public/index.html#root.
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'

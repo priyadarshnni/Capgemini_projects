@@ -1,3 +1,6 @@
+/**
+ * Daily summary tab — GET /api/Reports/daily-summary for a UTC calendar date.
+ */
 import { useEffect, useState } from 'react'
 import { dailySummary } from '../api'
 

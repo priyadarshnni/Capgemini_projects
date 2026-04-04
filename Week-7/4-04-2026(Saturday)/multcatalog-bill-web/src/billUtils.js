@@ -1,3 +1,20 @@
+/**
+ * =============================================================================
+ * billUtils — client-side math + mapping bill lines for React state
+ * =============================================================================
+ *
+ * Topic: computeTotals / lineTotal
+ *   Mirrors server BillMath so the UI shows the same numbers before “Save draft”.
+ *
+ * Topic: billToLocal / toInputs
+ *   Server lines have database ids; the editor adds a stable `key` for React
+ *   lists. PUT sends toInputs(lines) back to the API.
+ *
+ * Topic: DRAFT_KEY
+ *   localStorage remembers which draft id to reopen on next visit (see App.jsx).
+ * =============================================================================
+ */
+
 export const DRAFT_KEY = 'mcb-draft-bill-id'
 
 export function lineTotal(unit, qty) {

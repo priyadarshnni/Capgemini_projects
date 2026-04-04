@@ -1,3 +1,5 @@
+// How DiscountValue is applied to the bill subtotal (see BillMath.Totals).
+
 namespace MultiCatalogBill.Api.Models;
 
 public enum DiscountKind

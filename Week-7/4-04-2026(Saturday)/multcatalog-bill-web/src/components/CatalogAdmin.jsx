@@ -1,3 +1,7 @@
+/**
+ * Catalog admin tab — list/edit/deactivate catalog items per CatalogKind.
+ * Calls upsertCatalogItem + deleteCatalogItem in api.js; parent passes catalogByKind.
+ */
 import { useState } from 'react'
 import { deleteCatalogItem, upsertCatalogItem } from '../api'
 

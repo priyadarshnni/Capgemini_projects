@@ -1,3 +1,13 @@
+// =============================================================================
+// CatalogItem — reusable product / ticket / donation template
+// =============================================================================
+// Topic: Kind — groups rows for the UI tabs (EntranceFee, Donation, SellingPrice).
+// Topic: AllowsVariablePrice — UI may edit unit price when adding to a bill.
+// Topic: IsCustomAmountEntry — e.g. “custom donation”; default price is 0 until
+//        the cashier types an amount.
+// Topic: Active — false = soft-deleted; still in DB for old bill lines.
+// =============================================================================
+
 namespace MultiCatalogBill.Api.Models;
 
 public class CatalogItem

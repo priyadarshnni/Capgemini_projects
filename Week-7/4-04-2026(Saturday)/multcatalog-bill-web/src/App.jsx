@@ -1,3 +1,25 @@
+/**
+ * =============================================================================
+ * App.jsx — main shell: tabs, billing workspace, catalog admin, history, summary
+ * =============================================================================
+ *
+ * Topic: Bootstrap / draft recovery
+ *   loadOrCreateBootstrapBill() runs once (shared promise): try localStorage
+ *   draft id → GET bill; else POST new draft. Survives React StrictMode double
+ *   mount without creating two drafts.
+ *
+ * Topic: State
+ *   `bill` = server snapshot; `lines` = editable rows; previewTotals recomputes
+ *   from lines + discount + tax (see billUtils).
+ *
+ * Topic: Tabs
+ *   billing | catalogs | history | summary — each renders a section below.
+ *
+ * Topic: Print
+ *   InvoicePrint is always in the DOM; CSS @media print hides .no-print.
+ * =============================================================================
+ */
+
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   createBillDraft,
@@ -22,6 +44,7 @@ import { CatalogAdmin } from './components/CatalogAdmin'
 import { DailySummaryPanel } from './components/DailySummaryPanel'
 import { InvoicePrint } from './components/InvoicePrint'
 
+// Topic: one shared Promise so StrictMode does not create two drafts on cold start.
 let bootstrapBillPromise = null
 
 function loadOrCreateBootstrapBill() {
@@ -140,6 +163,7 @@ export default function App() {
     }
   }, [applyBill])
 
+  // Topic: PUT full line list + header fields; server recalculates totals.
   const persistDraft = async () => {
     if (!bill?.isDraft) return
     setBusy(true)
@@ -199,6 +223,7 @@ export default function App() {
   const updateLine = (key, patch) =>
     setLines((prev) => prev.map((l) => (l.key === key ? { ...l, ...patch } : l)))
 
+  // Topic: save then POST finalize — clears localStorage draft key.
   const finalize = async () => {
     if (!bill?.isDraft) return
     setBusy(true)
@@ -256,6 +281,7 @@ export default function App() {
         </div>
       )}
 
+      {/* Topic: Billing — catalog chips + line editor + totals + export links */}
       {tab === 'billing' && (
         <main className="grid no-print">
           <section className="panel">
@@ -469,6 +495,7 @@ export default function App() {
         </main>
       )}
 
+      {/* Topic: Catalog admin — CRUD via CatalogAdmin */}
       {tab === 'catalogs' && (
         <CatalogAdmin
           catalogByKind={catalogByKind}
@@ -479,6 +506,7 @@ export default function App() {
         />
       )}
 
+      {/* Topic: Past bills — search + open bill or delete draft */}
       {tab === 'history' && (
         <section className="panel no-print history">
           <h2>Past bills</h2>
@@ -580,6 +608,7 @@ export default function App() {
         </section>
       )}
 
+      {/* Topic: Reports — daily UTC summary */}
       {tab === 'summary' && (
         <DailySummaryPanel
           summaryDate={summaryDate}
@@ -589,6 +618,7 @@ export default function App() {
         />
       )}
 
+      {/* Topic: Printable invoice preview (browser Print uses this block) */}
       {bill && (
         <InvoicePrint
           bill={bill}

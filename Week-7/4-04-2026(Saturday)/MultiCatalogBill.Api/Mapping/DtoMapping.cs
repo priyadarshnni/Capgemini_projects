@@ -1,3 +1,10 @@
+// =============================================================================
+// DtoMapping — entity → JSON-friendly records for API responses
+// =============================================================================
+// Keeps EF entities internal; controllers return DTOs so we control shape and
+// can add computed fields (e.g. line total = unit × qty).
+// =============================================================================
+
 using MultiCatalogBill.Api.Contracts;
 using MultiCatalogBill.Api.Models;
 using MultiCatalogBill.Api.Services;

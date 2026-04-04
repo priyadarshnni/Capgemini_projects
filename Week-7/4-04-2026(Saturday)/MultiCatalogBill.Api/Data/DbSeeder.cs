@@ -1,3 +1,10 @@
+// =============================================================================
+// DbSeeder — one-time sample catalog data
+// =============================================================================
+// Runs on app startup (see Program.cs). If any catalog row already exists, it
+// skips — so you can add your own data without the seeder overwriting it.
+// =============================================================================
+
 using Microsoft.EntityFrameworkCore;
 using MultiCatalogBill.Api.Models;
 
@@ -10,6 +17,7 @@ public static class DbSeeder
         if (await db.CatalogItems.AnyAsync(ct))
             return;
 
+        // Topic: seed rows match the three CatalogKind values used in the UI.
         var items = new List<CatalogItem>
         {
             new() { Kind = CatalogKind.EntranceFee, Name = "Adult", DefaultUnitPrice = 15m, SortOrder = 1 },

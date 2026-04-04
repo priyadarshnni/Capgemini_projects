@@ -1,3 +1,12 @@
+// =============================================================================
+// Bill — invoice header (one row per bill in the Bills table)
+// =============================================================================
+// Topic: Draft vs final — IsDraft true until finalize; then InvoiceNumber and
+//        FinalizedAtUtc are set and PUT is rejected.
+// Topic: Stored totals — SubTotal, DiscountAmount, TaxAmount, GrandTotal are
+//        snapshots recalculated from lines on each save (see BillMath).
+// =============================================================================
+
 namespace MultiCatalogBill.Api.Models;
 
 public class Bill

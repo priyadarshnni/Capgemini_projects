@@ -1,3 +1,12 @@
+// =============================================================================
+// BillPdfBuilder — invoice PDF (QuestPDF)
+// =============================================================================
+// Builds an in-memory PDF byte[] for GET .../export/pdf. Layout: header with
+// invoice id and time, optional customer, line table, totals block, notes.
+// License is set once in Program.cs; empty bills still get a placeholder row
+// so the table layout is valid.
+// =============================================================================
+
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;

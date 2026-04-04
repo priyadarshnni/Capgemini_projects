@@ -1,3 +1,22 @@
+/**
+ * =============================================================================
+ * API client — all HTTP calls to the ASP.NET backend
+ * =============================================================================
+ *
+ * Topic: JSON requests (fetchCatalog, updateBill, …)
+ *   In development, `base()` is usually empty so URLs are `/api/...`. Create
+ *   React App’s `package.json` "proxy" forwards those to the API (port 5267).
+ *
+ * Topic: File downloads (pdfUrl, csvUrl)
+ *   In development we use fileDownloadBase() → http://localhost:5267 so the
+ *   browser loads real binary files (the dev proxy can break PDF/CSV).
+ *
+ * Topic: Production
+ *   Leave REACT_APP_API_URL unset if the UI and API share the same origin;
+ *   otherwise set it to your API base (no trailing slash).
+ * =============================================================================
+ */
+
 const jsonHeaders = { 'Content-Type': 'application/json' }
 
 async function handle(res) {

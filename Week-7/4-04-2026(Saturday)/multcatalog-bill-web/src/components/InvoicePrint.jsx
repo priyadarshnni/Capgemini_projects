@@ -1,3 +1,7 @@
+/**
+ * Static invoice layout for screen + print. Totals come from the same rules as
+ * billUtils.computeTotals (preview); server remains source of truth after save.
+ */
 import { lineTotal } from '../billUtils'
 
 export function InvoicePrint({ bill, lines, customerName, notes, previewTotals, taxRatePercent }) {

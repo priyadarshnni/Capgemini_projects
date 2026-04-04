@@ -1,3 +1,10 @@
+// =============================================================================
+// BillDbContext — EF Core database mapping
+// =============================================================================
+// Maps C# entities to SQL Server tables: column types, lengths, indexes, and
+// relationships. Migrations are generated from changes to this model.
+// =============================================================================
+
 using Microsoft.EntityFrameworkCore;
 using MultiCatalogBill.Api.Models;
 
@@ -11,6 +18,9 @@ public class BillDbContext(DbContextOptions<BillDbContext> options) : DbContext(
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // --- Topic: CatalogItem ------------------------------------------------
+        // Sellable / ticket / donation template rows. Index supports filtering
+        // by Kind + Active in the API list endpoints.
         modelBuilder.Entity<CatalogItem>(e =>
         {
             e.Property(x => x.Name).HasMaxLength(200);
@@ -19,6 +29,9 @@ public class BillDbContext(DbContextOptions<BillDbContext> options) : DbContext(
             e.HasIndex(x => new { x.Kind, x.Active });
         });
 
+        // --- Topic: Bill -------------------------------------------------------
+        // Header row for an invoice: draft vs finalized, stored totals, unique
+        // invoice number when finalized (filtered unique index allows many NULLs).
         modelBuilder.Entity<Bill>(e =>
         {
             e.Property(x => x.InvoiceNumber).HasMaxLength(40);
@@ -33,6 +46,9 @@ public class BillDbContext(DbContextOptions<BillDbContext> options) : DbContext(
             e.Property(x => x.GrandTotal).HasPrecision(18, 4);
         });
 
+        // --- Topic: BillLine ---------------------------------------------------
+        // Line items belonging to one bill. Cascade: deleting a bill deletes
+        // its lines. CatalogItemId optional — custom lines have no catalog link.
         modelBuilder.Entity<BillLine>(e =>
         {
             e.Property(x => x.Description).HasMaxLength(300);

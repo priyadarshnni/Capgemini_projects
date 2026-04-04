@@ -1,3 +1,17 @@
+// =============================================================================
+// BillMath — authoritative totals for bills (server-side)
+// =============================================================================
+// The React app duplicates this logic in billUtils.js for instant preview.
+// The API recomputes on every draft save and on finalize so stored SubTotal,
+// DiscountAmount, TaxAmount, GrandTotal always match the lines.
+//
+// Order of operations:
+//   1) Subtotal = sum of (unit price × quantity) per line, each rounded to 2 dp
+//   2) Discount: % of subtotal, or fixed amount capped at subtotal
+//   3) Tax: taxRatePercent applied to (subtotal − discount)
+//   4) Grand total = after-discount amount + tax
+// =============================================================================
+
 using MultiCatalogBill.Api.Models;
 
 namespace MultiCatalogBill.Api.Services;

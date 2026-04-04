@@ -1,3 +1,23 @@
+// =============================================================================
+// BillsController — REST API for invoices (drafts + finalized) and exports
+// =============================================================================
+// Base route: /api/Bills
+//
+// Topic: Draft lifecycle
+//   POST   /api/Bills              → create empty draft
+//   GET    /api/Bills/{id}         → load bill + lines (JSON for UI)
+//   PUT    /api/Bills/{id}         → replace all lines + discount/tax (draft only)
+//   POST   /api/Bills/{id}/finalize → lock bill, assign invoice number
+//   DELETE /api/Bills/{id}         → remove draft only
+//
+// Topic: Listing / search
+//   GET /api/Bills?q=&fromUtc=&toUtc=&draftsOnly=
+//
+// Topic: File downloads
+//   GET .../export/pdf  → QuestPDF bytes (see BillPdfBuilder)
+//   GET .../export/csv  → UTF-8 CSV of line items
+// =============================================================================
+
 using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +34,7 @@ namespace MultiCatalogBill.Api.Controllers;
 [Route("api/[controller]")]
 public class BillsController(BillDbContext db, ILogger<BillsController> log) : ControllerBase
 {
+    // --- Topic: search / filter past bills (up to 200 rows) -------------------
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<BillSummaryDto>>> Search(
         [FromQuery] string? q,
@@ -49,6 +70,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return Ok(list.Select(b => b.ToSummaryDto()).ToList());
     }
 
+    // --- Topic: start a new working bill (no lines yet) -----------------------
     [HttpPost]
     public async Task<ActionResult<BillDetailDto>> CreateDraft(CancellationToken ct = default)
     {
@@ -68,6 +90,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return CreatedAtAction(nameof(GetById), new { id = bill.Id }, bill.ToDetailDto());
     }
 
+    // --- Topic: load one bill for display or editing --------------------------
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BillDetailDto>> GetById(int id, CancellationToken ct = default)
     {
@@ -80,6 +103,8 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return Ok(bill.ToDetailDto());
     }
 
+    // --- Topic: save draft — full replace of lines + recalc totals -------------
+    // Catalog-linked lines: server may override unit price for fixed-price items.
     [HttpPut("{id:int}")]
     public async Task<ActionResult<BillDetailDto>> Update(int id, [FromBody] UpdateBillDto dto, CancellationToken ct = default)
     {
@@ -137,6 +162,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return Ok(bill.ToDetailDto());
     }
 
+    // --- Topic: finalize — invoice number, no further line edits --------------
     [HttpPost("{id:int}/finalize")]
     public async Task<ActionResult<BillDetailDto>> Finalize(int id, CancellationToken ct = default)
     {
@@ -158,6 +184,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return Ok(bill.ToDetailDto());
     }
 
+    // --- Topic: discard a draft only -----------------------------------------
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteDraft(int id, CancellationToken ct = default)
     {
@@ -171,6 +198,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return NoContent();
     }
 
+    // --- Topic: PDF download — binary application/pdf ------------------------
     [HttpGet("{id:int}/export/pdf")]
     public async Task<IActionResult> ExportPdf(int id, CancellationToken ct = default)
     {
@@ -191,6 +219,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         }
     }
 
+    // --- Topic: CSV export — one row per line item ----------------------------
     [HttpGet("{id:int}/export/csv")]
     public async Task<IActionResult> ExportCsv(int id, CancellationToken ct = default)
     {
@@ -216,6 +245,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         return File(bytes, "text/csv", $"{inv}.csv");
     }
 
+    // --- Topic: persist subtotal / discount / tax / grand on the Bill row -------
     private static void ApplyTotals(Bill bill)
     {
         var pairs = bill.Lines.Select(l => (l.UnitPrice, l.Quantity));
@@ -226,6 +256,7 @@ public class BillsController(BillDbContext db, ILogger<BillsController> log) : C
         bill.GrandTotal = grand;
     }
 
+    // --- Topic: CSV escaping — wrap fields in quotes, double internal quotes --
     private static string Csv(string? s)
     {
         if (string.IsNullOrEmpty(s))

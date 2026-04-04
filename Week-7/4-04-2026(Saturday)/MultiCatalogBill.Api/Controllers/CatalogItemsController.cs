@@ -1,3 +1,13 @@
+// =============================================================================
+// CatalogItemsController — CRUD for catalog templates (not bill lines)
+// =============================================================================
+// Base route: /api/CatalogItems
+//
+// These rows power the “chips” in the UI (entrance, donation, selling).
+// Topic: Soft delete — HTTP DELETE sets Active=false so historical bills still
+//        reference valid catalog ids; includeInactive=true lists them in admin.
+// =============================================================================
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MultiCatalogBill.Api.Contracts;
@@ -11,6 +21,7 @@ namespace MultiCatalogBill.Api.Controllers;
 [Route("api/[controller]")]
 public class CatalogItemsController(BillDbContext db) : ControllerBase
 {
+    // --- Topic: list (optional filter by CatalogKind, optional inactive) ------
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<CatalogItemDto>>> GetAll(
         [FromQuery] CatalogKind? kind,
@@ -26,6 +37,7 @@ public class CatalogItemsController(BillDbContext db) : ControllerBase
         return Ok(list.Select(x => x.ToDto()).ToList());
     }
 
+    // --- Topic: single row (e.g. future detail screen) ------------------------
     [HttpGet("{id:int}")]
     public async Task<ActionResult<CatalogItemDto>> GetById(int id, CancellationToken ct = default)
     {
@@ -35,6 +47,7 @@ public class CatalogItemsController(BillDbContext db) : ControllerBase
         return Ok(item.ToDto());
     }
 
+    // --- Topic: admin — create a new catalog row -------------------------------
     [HttpPost]
     public async Task<ActionResult<CatalogItemDto>> Create([FromBody] UpsertCatalogItemDto dto, CancellationToken ct = default)
     {
@@ -54,6 +67,7 @@ public class CatalogItemsController(BillDbContext db) : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = entity.Id }, entity.ToDto());
     }
 
+    // --- Topic: admin — edit fields -------------------------------------------
     [HttpPut("{id:int}")]
     public async Task<ActionResult<CatalogItemDto>> Update(int id, [FromBody] UpsertCatalogItemDto dto, CancellationToken ct = default)
     {
@@ -72,6 +86,7 @@ public class CatalogItemsController(BillDbContext db) : ControllerBase
         return Ok(entity.ToDto());
     }
 
+    // --- Topic: soft delete — hide from default lists -------------------------
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> SoftDelete(int id, CancellationToken ct = default)
     {
