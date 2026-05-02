@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "StudentAttendanceSystem.Controllers.AttendanceController",
+    "Method": "Get",
+    "RelativePath": "api/Attendance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentAttendanceSystem.Controllers.AttendanceController",
+    "Method": "Add",
+    "RelativePath": "api/Attendance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "attendance",
+        "Type": "StudentAttendanceSystem.Model.Attendance",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

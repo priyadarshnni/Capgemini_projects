@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Controllers\\WeatherForecastController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\WeatherForecastController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\models\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:models\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\dtos\\updateairplanedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:dtos\\updateairplanedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\dtos\\createairplanedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:dtos\\createairplanedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\validations\\allowedenginetypeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:validations\\allowedenginetypeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\dtos\\airplaneresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:dtos\\airplaneresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\controllers\\airplanescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:controllers\\airplanescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week_8\\10-04-2026\\assignments\\assignment-1\\airplaneapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BF0BB5E6-011F-CBF8-E1C3-33542F423975}|AirplaneAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA3wBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:51:19.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Airplane.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Models\\Airplane.cs",
+              "RelativeDocumentMoniker": "Models\\Airplane.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Models\\Airplane.cs",
+              "RelativeToolTip": "Models\\Airplane.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:31:20.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UpdateAirplaneDto.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\UpdateAirplaneDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UpdateAirplaneDto.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\UpdateAirplaneDto.cs",
+              "RelativeToolTip": "DTOs\\UpdateAirplaneDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:30:15.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateAirplaneDto.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\CreateAirplaneDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateAirplaneDto.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\CreateAirplaneDto.cs",
+              "RelativeToolTip": "DTOs\\CreateAirplaneDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:29:56.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:43:06.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AllowedEngineTypeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Validations\\AllowedEngineTypeAttribute.cs",
+              "RelativeDocumentMoniker": "Validations\\AllowedEngineTypeAttribute.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Validations\\AllowedEngineTypeAttribute.cs",
+              "RelativeToolTip": "Validations\\AllowedEngineTypeAttribute.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAYwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:31:53.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AirplaneResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\AirplaneResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\AirplaneResponseDto.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\DTOs\\AirplaneResponseDto.cs",
+              "RelativeToolTip": "DTOs\\AirplaneResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:30:27.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AirplanesController.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Controllers\\AirplanesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AirplanesController.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\Controllers\\AirplanesController.cs",
+              "RelativeToolTip": "Controllers\\AirplanesController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAkwDIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:27:38.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week_8\\10-04-2026\\Assignments\\Assignment-1\\AirplaneAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-10T09:42:23.299Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

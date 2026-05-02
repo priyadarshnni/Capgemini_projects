@@ -1,0 +1,12 @@
+﻿namespace EmployeePortal_BE.models.dto
+{
+    public class EmployeeResponseDto
+    {
+        public Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string Department { get; set; }
+        public required string Email { get; set; }
+        public required string Phone { get; set; }
+        public AddressDto Address { get; set; }
+    }
+}

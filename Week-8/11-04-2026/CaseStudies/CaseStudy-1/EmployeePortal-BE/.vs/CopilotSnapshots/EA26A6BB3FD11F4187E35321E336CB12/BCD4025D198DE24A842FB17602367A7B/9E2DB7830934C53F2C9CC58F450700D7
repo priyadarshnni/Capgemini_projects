@@ -1,0 +1,30 @@
+﻿@EmployeePortal_BE_HostAddress = http://localhost:5035
+
+### Get all employees
+GET {{EmployeePortal_BE_HostAddress}}/api/employee
+Accept: application/json
+
+###
+
+### Create a new employee
+POST {{EmployeePortal_BE_HostAddress}}/api/employee
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "department": "Engineering",
+  "email": "john.doe@example.com",
+  "password": "SecurePassword123!",
+  "phone": "+1234567890",
+  "salary": 75000,
+  "address": "123 Main St",
+  "age": 30
+}
+
+###
+
+### Get employee by ID (use 1, 2, 3, etc.)
+GET {{EmployeePortal_BE_HostAddress}}/api/employee/1
+Accept: application/json
+
+###

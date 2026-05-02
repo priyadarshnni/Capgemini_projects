@@ -1,0 +1,51 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using AirplaneAPI.Models;
+using AirplaneAPI.DTOs;
+
+namespace AirplaneAPI.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AirplanesController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            // Simple in-memory response to avoid external dependencies
+            var airplanes = new List<AirplaneResponseDto>
+            {
+                new AirplaneResponseDto
+                {
+                    Id = 1,
+                    Model = "Sample Model",
+                    Manufacturer = "Sample Manufacturer",
+                    EngineType = "Jet",
+                    Capacity = 180
+                }
+            };
+
+            return Ok(airplanes);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateAirplaneDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Echo back a fake created airplane
+            var created = new AirplaneResponseDto
+            {
+                Id = 1,
+                Model = dto.Model,
+                Manufacturer = dto.Manufacturer,
+                EngineType = dto.EngineType,
+                Capacity = dto.Capacity
+            };
+
+            return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+        }
+    }
+}

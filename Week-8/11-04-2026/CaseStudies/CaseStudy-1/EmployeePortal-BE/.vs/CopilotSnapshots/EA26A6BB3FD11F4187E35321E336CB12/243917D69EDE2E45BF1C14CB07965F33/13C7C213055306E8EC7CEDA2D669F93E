@@ -1,0 +1,63 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EmployeePortal_BE.models.attributes
+{
+    public class CheckPasswordAttribute : ValidationAttribute
+    {
+        private readonly int MinimumLength = 8;
+        private readonly string SpecialCharacters = "!@#$%^&*";
+
+        public CheckPasswordAttribute()
+        {
+            ErrorMessage = "Password must meet all requirements.";
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            string password = value.ToString();
+
+            // Check all conditions together
+            if (password.Length < MinimumLength)
+            {
+                return new ValidationResult($"Password must be at least {MinimumLength} characters long.");
+            }
+
+            bool hasUppercase = false;
+            bool hasLowercase = false;
+            bool hasSpecialCharacter = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c))
+                {
+                    hasUppercase = true;
+                }
+                else if (char.IsLower(c))
+                {
+                    hasLowercase = true;
+                }
+                else if (SpecialCharacters.Contains(c))
+                {
+                    hasSpecialCharacter = true;
+                }
+            }
+
+            if (!hasUppercase)
+            {
+                return new ValidationResult("Password must contain at least one uppercase letter (A-Z).");
+            }
+
+            if (!hasLowercase)
+            {
+                return new ValidationResult("Password must contain at least one lowercase letter (a-z).");
+            }
+
+            if (!hasSpecialCharacter)
+            {
+                return new ValidationResult("Password must contain at least one special character (!@#$%^&*).");
+            }
+
+            return ValidationResult.Success;
+        }
+    }
+}

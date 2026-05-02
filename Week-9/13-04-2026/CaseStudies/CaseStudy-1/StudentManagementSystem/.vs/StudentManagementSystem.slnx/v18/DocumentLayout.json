@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE5B7E0A-6D02-4B23-A466-EDD1B27E3E94}|..\\ApiGateway\\ApiGateway.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE5B7E0A-6D02-4B23-A466-EDD1B27E3E94}|..\\ApiGateway\\ApiGateway.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\apigateway\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE5B7E0A-6D02-4B23-A466-EDD1B27E3E94}|..\\ApiGateway\\ApiGateway.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\apigateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D09A2FDE-7F67-4A2B-929B-D88F726FE213}|StudentManagementSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D09A2FDE-7F67-4A2B-929B-D88F726FE213}|StudentManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE568586-E90C-4117-B03B-EF44A7872D36}|..\\StudentAttendanceSystem\\StudentAttendanceSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentattendancesystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97CA3098-CDD8-4C71-8693-9FD534A5008D}|..\\StudentAdmissionSystem\\StudentAdmissionSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentadmissionsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97CA3098-CDD8-4C71-8693-9FD534A5008D}|..\\StudentAdmissionSystem\\StudentAdmissionSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentadmissionsystem\\model\\admission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE568586-E90C-4117-B03B-EF44A7872D36}|..\\StudentAttendanceSystem\\StudentAttendanceSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentattendancesystem\\model\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE568586-E90C-4117-B03B-EF44A7872D36}|..\\StudentAttendanceSystem\\StudentAttendanceSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentattendancesystem\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97CA3098-CDD8-4C71-8693-9FD534A5008D}|..\\StudentAdmissionSystem\\StudentAdmissionSystem.csproj|c:\\users\\anurag bhardwaj\\desktop\\cap\\week-9\\13-04-2026\\casestudies\\casestudy-1\\studentadmissionsystem\\controllers\\admissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "..\\ApiGateway\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\Properties\\launchSettings.json",
+              "RelativeToolTip": "..\\ApiGateway\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-13T09:12:05.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ocelot.json",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\ocelot.json",
+              "RelativeDocumentMoniker": "..\\ApiGateway\\ocelot.json",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\ocelot.json",
+              "RelativeToolTip": "..\\ApiGateway\\ocelot.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-13T09:09:51.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\Program.cs",
+              "RelativeDocumentMoniker": "..\\ApiGateway\\Program.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\ApiGateway\\Program.cs",
+              "RelativeToolTip": "..\\ApiGateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T07:32:21.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentManagementSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:54:08.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Program.cs",
+              "RelativeDocumentMoniker": "..\\StudentAttendanceSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Program.cs",
+              "RelativeToolTip": "..\\StudentAttendanceSystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:53:58.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Program.cs",
+              "RelativeDocumentMoniker": "..\\StudentAdmissionSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Program.cs",
+              "RelativeToolTip": "..\\StudentAdmissionSystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:53:45.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AttendanceController.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Controllers\\AttendanceController.cs",
+              "RelativeDocumentMoniker": "..\\StudentAttendanceSystem\\Controllers\\AttendanceController.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Controllers\\AttendanceController.cs",
+              "RelativeToolTip": "..\\StudentAttendanceSystem\\Controllers\\AttendanceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:41:45.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdmissionController.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Controllers\\AdmissionController.cs",
+              "RelativeDocumentMoniker": "..\\StudentAdmissionSystem\\Controllers\\AdmissionController.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Controllers\\AdmissionController.cs",
+              "RelativeToolTip": "..\\StudentAdmissionSystem\\Controllers\\AdmissionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:41:06.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Model\\Attendance.cs",
+              "RelativeDocumentMoniker": "..\\StudentAttendanceSystem\\Model\\Attendance.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAttendanceSystem\\Model\\Attendance.cs",
+              "RelativeToolTip": "..\\StudentAttendanceSystem\\Model\\Attendance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:40:33.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Admission.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Model\\Admission.cs",
+              "RelativeDocumentMoniker": "..\\StudentAdmissionSystem\\Model\\Admission.cs",
+              "ToolTip": "C:\\Users\\Anurag Bhardwaj\\Desktop\\Cap\\Week-9\\13-04-2026\\CaseStudies\\CaseStudy-1\\StudentAdmissionSystem\\Model\\Admission.cs",
+              "RelativeToolTip": "..\\StudentAdmissionSystem\\Model\\Admission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T06:40:08.416Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

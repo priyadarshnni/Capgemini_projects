@@ -1,0 +1,40 @@
+﻿using EmployeePortal_BE.models.attributes;
+using System.ComponentModel.DataAnnotations;
+namespace EmployeePortal_BE.models.dto
+{
+    public class CreateEmployeeDto
+    {
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        public string Department { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        [Phone]
+        [RegularExpression(@"^\+[1-9][1-9]-[6-9]\d{5,14}$", ErrorMessage = "Invalid Phone Number")]
+        public string Phone { get; set; }
+
+        //[Range(1000, 10000)]
+        //[MinSalary(1000)]
+        [MinMaxSalary(1000, 10000)]
+        public decimal Salary { get; set; }
+
+        [Required]
+        //[StringLength(100)]
+        public AddressDto Address { get; set; }
+
+        [Required]
+        [Range(18, 60)]
+        public int Age { get; set; }
+    }
+}

@@ -1,0 +1,8 @@
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.csproj.AssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.AssemblyInfoInputs.cache
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.AssemblyInfo.cs
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\OneDrive\Desktop\EmployeePortal-BE\EmployeePortal-BE\obj\Debug\net10.0\EmployeePortal-BE.MvcApplicationPartsAssemblyInfo.cache

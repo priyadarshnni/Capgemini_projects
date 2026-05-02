@@ -1,0 +1,11 @@
+﻿namespace AirplaneAPI.Models
+{
+    public class Airplane
+    {
+        public int Id { get; set; }
+        public string Model { get; set; } = string.Empty;
+        public string Manufacturer { get; set; } = string.Empty;
+        public string EngineType { get; set; } = string.Empty;
+        public int Capacity { get; set; }
+    }
+}

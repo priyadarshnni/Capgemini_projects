@@ -1,0 +1,62 @@
+﻿using EmployeePortal_BE.models.dto;
+using EmployeePortal_BE.models.entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EmployeePortal_BE.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmployeeController : Controller
+    {
+        private static List<Employees> employees = new List<Employees>();
+
+        //Post create employee
+        [HttpPost]
+        public IActionResult CreateEmployee(CreateEmployeeDto createEmployeeDto)
+        {
+            var newEmployee = new Employees
+            {
+                Id = Guid.NewGuid(),
+                Name = createEmployeeDto.name,
+                Email = createEmployeeDto.email,
+                Department = createEmployeeDto.department,
+                Password = createEmployeeDto.password,
+                Phone = createEmployeeDto.phone,
+                Salary = createEmployeeDto.salary,
+                Address = createEmployeeDto.address
+            };
+            employees.Add(newEmployee);
+            var response = new EmployeeResponseDto
+            {
+                Id = newEmployee.Id,
+                Address = newEmployee.Address,
+                Department = newEmployee.Department,
+                Email = newEmployee.Email,
+                Name = newEmployee.Name,
+                Phone = newEmployee.Phone
+            };
+            return CreatedAtAction(nameof(GetEmployeeById), response);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetEmployeeById(Guid id)
+        {
+            var employee = employees.FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var response = new EmployeeResponseDto
+            {
+                Id = employee.Id,
+                Address = employee.Address,
+                Department = employee.Department,
+                Email = employee.Email,
+                Name = employee.Name,
+                Phone = employee.Phone
+            };
+            return Ok(response);
+        }
+
+    }
+}

@@ -1,0 +1,30 @@
+﻿using System.ComponentModel.DataAnnotations;
+namespace EmployeePortal_BE.models.dto
+{
+    public class CreateEmployeeDto
+    {
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
+        public string name;
+
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        public string department;
+
+        [Required]
+        [EmailAddress]
+        public string email;
+
+        [Required]
+        public string password;
+
+        [Required]
+        [Phone]
+        public string phone;
+
+        public decimal salary;
+
+        [StringLength(100)]
+        public string address;
+    }
+}

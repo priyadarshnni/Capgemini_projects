@@ -1,0 +1,13 @@
+﻿using System.ComponentModel.DataAnnotations;
+using AirplaneAPI.Validations;
+
+namespace AirplaneAPI.DTOs
+{
+    public class UpdateAirplaneDto
+    {
+        public string Model { get; set; } = string.Empty;
+        public string Manufacturer { get; set; } = string.Empty;
+        public string EngineType { get; set; } = string.Empty;
+        public int Capacity { get; set; }
+    }
+}

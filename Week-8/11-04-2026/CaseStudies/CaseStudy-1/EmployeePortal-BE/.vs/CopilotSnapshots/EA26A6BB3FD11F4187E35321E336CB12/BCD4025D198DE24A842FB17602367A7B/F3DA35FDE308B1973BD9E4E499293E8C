@@ -1,0 +1,78 @@
+﻿using EmployeePortal_BE.models.dto;
+using EmployeePortal_BE.models.entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EmployeePortal_BE.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmployeeController : Controller
+    {
+        private static List<Employees> employees = new List<Employees>();
+        private static int nextId = 1;
+
+        //Post create employee
+        [HttpPost]
+        public IActionResult CreateEmployee(CreateEmployeeDto createEmployeeDto)
+        {
+            var newEmployee = new Employees
+            {
+                Id = nextId++,
+                Name = createEmployeeDto.Name,
+                Email = createEmployeeDto.Email,
+                Department = createEmployeeDto.Department,
+                Password = createEmployeeDto.Password,
+                Phone = createEmployeeDto.Phone,
+                Salary = createEmployeeDto.Salary,
+                Address = createEmployeeDto.Address
+            };
+            employees.Add(newEmployee);
+            var response = new EmployeeResponseDto
+            {
+                Id = newEmployee.Id,
+                Address = newEmployee.Address,
+                Department = newEmployee.Department,
+                Email = newEmployee.Email,
+                Name = newEmployee.Name,
+                Phone = newEmployee.Phone
+            };
+            return CreatedAtAction(nameof(GetEmployeeById), new { id = newEmployee.Id }, response);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllEmployees()
+        {
+            var responses = employees.Select(e => new EmployeeResponseDto
+            {
+                Id = e.Id,
+                Address = e.Address,
+                Department = e.Department,
+                Email = e.Email,
+                Name = e.Name,
+                Phone = e.Phone
+            }).ToList();
+            return Ok(responses);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetEmployeeById(int id)
+        {
+            var employee = employees.FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var response = new EmployeeResponseDto
+            {
+                Id = employee.Id,
+                Address = employee.Address,
+                Department = employee.Department,
+                Email = employee.Email,
+                Name = employee.Name,
+                Phone = employee.Phone
+            };
+            return Ok(response);
+        }
+
+    }
+}
