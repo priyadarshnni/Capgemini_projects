@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProductManagement.DTOs.ProductResponseDto>
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+    <h3 class="m-0 fw-light text-dark">Catalog</h3>
+    <a asp-action="Create" class="btn btn-outline-dark btn-sm">
+        <i class="bi bi-plus-lg me-1"></i> Add Product
+    </a>
+</div>
+
+<div class="card shadow-sm border bg-white">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light text-secondary">
+                    <tr>
+                        <th class="ps-4 fw-normal">Product Details</th>
+                        <th class="fw-normal">@Html.DisplayNameFor(model => model.Price)</th>
+                        <th class="fw-normal">Category</th>
+                        <th class="text-end pe-4 fw-normal">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model) {
+                    <tr>
+                        <td class="ps-4">
+                            <span class="mb-0 text-dark fw-medium d-block">@item.Name</span>
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <small class="text-muted text-truncate d-inline-block" style="max-width: 250px;">@item.Description</small>
+                            }
+                        </td>
+                        <td>
+                            <span class="text-success fw-medium">@item.Price.ToString("C")</span>
+                        </td>
+                        <td>
+                            <span class="text-secondary small border px-2 py-1 rounded bg-light">@item.CategoryName</span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-light btn-sm border text-secondary" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-light btn-sm border text-secondary" title="Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-light btn-sm border text-danger" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+            }
+                @if(!Model.Any()) {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted p-5">
+                            <i class="bi bi-inbox fs-1 d-block mb-3"></i>
+                            No products found in the catalog.
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

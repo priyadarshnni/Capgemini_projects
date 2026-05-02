@@ -1,0 +1,55 @@
+@model ProductManagement.DTOs.ProductRequestDto
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-sm border rounded-3 bg-white">
+            <div class="card-header bg-white border-bottom p-4">
+                <h4 class="mb-0 text-dark fw-light">Update Product</h4>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger rounded-3" role="alert"></div>
+                    
+                    <div class="form-floating mb-4">
+                        <input asp-for="Name" class="form-control bg-light border-0" placeholder="Product Name" />
+                        <label asp-for="Name" class="text-secondary">Name</label>
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Price" class="form-control bg-light border-0" placeholder="0.00" type="number" step="0.01" />
+                        <label asp-for="Price" class="text-secondary">Price</label>
+                        <span asp-validation-for="Price" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="CategoryId" class="form-control bg-light border-0" placeholder="Category Code" />
+                        <label asp-for="CategoryId" class="text-secondary">Category ID</label>
+                        <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <textarea asp-for="Description" class="form-control bg-light border-0" placeholder="Detailed description" style="height: 120px"></textarea>
+                        <label asp-for="Description" class="text-secondary">Description</label>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5 pt-3 border-top">
+                        <a asp-action="GetAll" class="btn btn-link text-muted px-4 me-md-2 text-decoration-none" tabindex="-1">Cancel</a>
+                        <button type="submit" class="btn btn-dark px-5">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

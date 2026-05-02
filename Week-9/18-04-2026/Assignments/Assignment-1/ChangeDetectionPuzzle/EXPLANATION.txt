@@ -1,0 +1,227 @@
+/* CHANGE DETECTION PUZZLE - QUESTION & ANSWERS */
+
+COMPONENT HIERARCHY:
+====================
+AppComponent (Default strategy)
+└── DashboardComponent (OnPush strategy)
+    └── StatsComponent (Default strategy)
+
+
+PROBLEM STATEMENT:
+==================
+DashboardComponent receives @Input() userStats from AppComponent.
+Inside DashboardComponent:
+  updateLocally() { this.userStats.score = 100; }
+
+After clicking a button that calls updateLocally():
+- The view in DashboardComponent DOES NOT update
+- StatsComponent (child) SHOWS the updated score
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+QUESTION A: Why does DashboardComponent not update its own view?
+(3 marks)
+
+ANSWER:
+-------
+DashboardComponent uses the OnPush change detection strategy. This strategy
+is more efficient and only runs change detection when:
+
+1. An @Input() property REFERENCE changes (object is replaced)
+   - Example: this.userStats = newObject  ✓ (triggers)
+   - Example: this.userStats.score = 100  ✗ (does NOT trigger)
+
+2. An event (click, input, keyup, etc.) occurs WITHIN the component
+
+3. ChangeDetectorRef.markForCheck() or detectChanges() is explicitly called
+
+4. An observable @Input() emits a new value
+
+WHY THE VIEW DOESN'T UPDATE IN THIS CASE:
+Since we mutated the object in-place (this.userStats.score = 100), the object
+REFERENCE didn't change. OnPush only cares about references, not mutations.
+Therefore, no change detection is triggered for DashboardComponent, and the
+view is not updated.
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+QUESTION B: Why does StatsComponent show the updated value?
+(3 marks)
+
+ANSWER:
+-------
+StatsComponent uses the Default change detection strategy (ChangeDetectionStrategy.Default).
+Default strategy is much more aggressive and runs change detection on:
+
+1. Every zone event (async operations, timers, events)
+2. Every user interaction (clicks, inputs, etc.)
+3. Basically any event that might cause data changes
+
+Although the object REFERENCE didn't change, the actual data WAS mutated in memory.
+When Default strategy runs its change detection cycle, it re-evaluates all bindings
+in the template and reads the current VALUES from the objects.
+
+So even though the reference is still the same, the value inside that object
+(score = 100) has changed. When Default strategy checks the template binding,
+it sees the new value and updates the view.
+
+KEY INSIGHT: Default strategy checks VALUES, OnPush strategy checks REFERENCES.
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+QUESTION C: How would you fix DashboardComponent without changing to Default?
+(4 marks)
+
+ANSWER:
+-------
+There are 3 main solutions (all keeping OnPush strategy):
+
+
+SOLUTION 1: Use ChangeDetectorRef.markForCheck()
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+```typescript
+import { ChangeDetectorRef } from '@angular/core';
+
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+  
+  constructor(private cdr: ChangeDetectorRef) {}
+  
+  updateLocally() {
+    this.userStats.score = 100;
+    this.cdr.markForCheck();  // Mark for check in next cycle
+  }
+}
+```
+
+How it works:
+- markForCheck() tells Angular: "Check this component in the next change detection cycle"
+- It doesn't run immediately, but schedules a check
+- Good for performance when you're doing multiple mutations
+- Preferred when you have multiple updates in a row
+
+Benefits: Efficient, doesn't block, good for batch updates
+
+
+SOLUTION 2: Use ChangeDetectorRef.detectChanges()
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+```typescript
+import { ChangeDetectorRef } from '@angular/core';
+
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+  
+  constructor(private cdr: ChangeDetectorRef) {}
+  
+  updateLocally() {
+    this.userStats.score = 100;
+    this.cdr.detectChanges();  // Run change detection immediately
+  }
+}
+```
+
+How it works:
+- detectChanges() immediately runs change detection for this component tree
+- Doesn't wait for the next cycle
+- Updates the view right away
+
+Benefits: Immediate, guaranteed, good for single updates
+
+Caution: Can be expensive if called too frequently
+
+
+SOLUTION 3: Create New Object Reference (Immutable Pattern)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+```typescript
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+  
+  updateLocally() {
+    // Create new object with spread operator
+    this.userStats = { ...this.userStats, score: 100 };
+  }
+}
+```
+
+How it works:
+- Instead of mutating, create a new object
+- The new object reference triggers OnPush change detection automatically
+- OnPush detects when @Input() REFERENCES change
+- Since we assigned a NEW object, the reference changed, triggering detection
+
+Benefits: Most efficient, follows Angular best practices, immutable data patterns
+Works great with: OnPush strategy, Redux/NgRx patterns, performance optimization
+
+This is the RECOMMENDED approach for modern Angular!
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+COMPARISON TABLE:
+═════════════════
+
+┌─────────────────────┬──────────────┬──────────────┬──────────────────┐
+│ Solution            │ Performance  │ Simplicity   │ Best For         │
+├─────────────────────┼──────────────┼──────────────┼──────────────────┤
+│ markForCheck()      │ Very Good    │ Simple       │ Batch updates    │
+│ detectChanges()     │ Good         │ Simple       │ Single updates   │
+│ New Reference       │ Excellent    │ Good         │ Best practice    │
+│ (Immutable)         │              │              │ Scalability      │
+└─────────────────────┴──────────────┴──────────────┴──────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+PRACTICAL EXAMPLE: When to use each
+═════════════════════════════════════
+
+// Multiple mutations → markForCheck()
+updateMultipleFields() {
+  this.userStats.score += 10;
+  this.userStats.level += 1;
+  this.userStats.achievements.push('New Achievement');
+  this.cdr.markForCheck();  // Single check for all changes
+}
+
+// Single simple update → detectChanges()
+updateScore() {
+  this.userStats.score = 100;
+  this.cdr.detectChanges();  // Immediate update
+}
+
+// Scalable, reactive code → New Reference
+processApiResponse(data: any) {
+  this.userStats = data;  // New reference automatically triggers detection
+}
+
+// Best practice with OnPush → Immutable pattern
+addAchievement(achievement: string) {
+  this.userStats = {
+    ...this.userStats,
+    achievements: [...this.userStats.achievements, achievement]
+  };
+}
+
+
+═══════════════════════════════════════════════════════════════════
+
+
+KEY TAKEAWAYS:
+══════════════
+
+1. OnPush strategy is more performant but only detects REFERENCE changes
+2. Default strategy detects VALUE changes but runs more frequently
+3. Child components with Default strategy still update even with OnPush parent
+4. Always use immutable patterns with OnPush for best results
+5. ChangeDetectorRef is useful for edge cases where mutation is necessary

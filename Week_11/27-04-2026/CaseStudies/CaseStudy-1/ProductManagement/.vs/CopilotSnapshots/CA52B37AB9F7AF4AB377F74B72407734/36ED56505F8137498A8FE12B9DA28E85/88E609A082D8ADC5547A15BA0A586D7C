@@ -1,0 +1,46 @@
+﻿@model ProductManagement.DTOs.ProductResponseDto
+
+@{
+    ViewData["Title"] = "Confirm Deletion";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-danger rounded-4 overflow-hidden">
+            <div class="card-header bg-danger text-white p-4 text-center">
+                <i class="bi bi-exclamation-triangle display-3 mb-2 mx-auto d-block"></i>
+                <h3 class="mb-0 fw-bold">Delete Product</h3>
+                <p class="fs-5 mb-0 opacity-75">Are you sure you want to proceed?</p>
+            </div>
+            
+            <div class="card-body p-5 bg-white text-center">
+                <p class="lead text-muted mb-4">
+                    You are permanently deleting the following item. This action cannot be undone.
+                </p>
+                <div class="bg-light p-4 rounded-3 text-start mb-4 shadow-sm border border-secondary border-opacity-10">
+                    <h4 class="mb-3 text-primary text-center pb-2 border-bottom">@Model.Name</h4>
+                    <div class="row mb-2">
+                        <span class="col-5 text-muted fw-bold text-end">Price:</span>
+                        <span class="col-7 font-monospace fw-semibold text-success">@Model.Price.ToString("C")</span>
+                    </div>
+                    <div class="row mb-2">
+                        <span class="col-5 text-muted fw-bold text-end">Category:</span>
+                        <span class="col-7"><span class="badge bg-secondary">@Model.CategoryName</span></span>
+                    </div>
+                </div>
+
+                <form asp-action="Delete" class="mt-4 pt-3 border-top d-flex gap-3 justify-content-center">
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <a asp-action="GetAll" class="btn btn-light btn-lg px-4 me-2 border text-muted">
+                        <i class="bi bi-x-circle me-2"></i>Cancel
+                    </a>
+                    
+                    <button type="submit" class="btn btn-danger btn-lg px-5 shadow fw-bold">
+                        <i class="bi bi-trash3-fill me-2"></i>Yes, Delete it!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

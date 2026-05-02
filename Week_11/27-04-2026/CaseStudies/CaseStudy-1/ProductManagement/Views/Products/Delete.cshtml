@@ -1,0 +1,46 @@
+@model ProductManagement.DTOs.ProductResponseDto
+
+@{
+    ViewData["Title"] = "Confirm Deletion";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-sm border rounded-3 bg-white">
+            <div class="card-header bg-white border-bottom p-4 text-center">
+                <i class="bi bi-trash text-danger display-5 mb-2 mx-auto d-block"></i>
+                <h4 class="mb-0 text-dark fw-light">Delete Product</h4>
+                <p class="text-muted small mt-2 mb-0">Are you sure you want to proceed?</p>
+            </div>
+            
+            <div class="card-body p-4 p-md-5 text-center">
+                <p class="text-muted mb-4">
+                    You are permanently deleting the following item. This action cannot be undone.
+                </p>
+                <div class="bg-light p-4 rounded-3 text-start mb-4 border">
+                    <h5 class="mb-3 text-dark text-center pb-2 border-bottom">@Model.Name</h5>
+                    <div class="row mb-2">
+                        <span class="col-5 text-muted fw-normal text-end">Price:</span>
+                        <span class="col-7 text-success">@Model.Price.ToString("C")</span>
+                    </div>
+                    <div class="row mb-2">
+                        <span class="col-5 text-muted fw-normal text-end">Category:</span>
+                        <span class="col-7"><span class="badge border text-secondary fw-normal bg-white">@Model.CategoryName</span></span>
+                    </div>
+                </div>
+
+                <form asp-action="Delete" class="mt-5 d-flex gap-3 justify-content-center pt-3 border-top">
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <a asp-action="GetAll" class="btn btn-link text-muted px-4 text-decoration-none">
+                        Cancel
+                    </a>
+                    
+                    <button type="submit" class="btn btn-outline-danger px-5">
+                        Yes, Delete it
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

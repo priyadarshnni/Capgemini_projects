@@ -1,0 +1,56 @@
+@model ProductManagement.DTOs.ProductResponseDto
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border rounded-3 bg-white">
+            <div class="card-header bg-white border-bottom p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0 text-dark fw-light">Product Details</h4>
+                    <span class="text-secondary small">ID Number #@Model.Id</span>
+                </div>
+            </div>
+            
+            <div class="card-body p-4 p-md-5">
+                <div class="row mb-4 text-center px-4">
+                    <div class="col-sm-6 border-end">
+                        <small class="text-uppercase text-muted border-bottom pb-1 d-inline-block mb-3">Product Name</small>
+                        <h4 class="mt-2 fw-medium text-dark">@Model.Name</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <small class="text-uppercase text-muted border-bottom pb-1 d-inline-block mb-3">Price</small>
+                        <h4 class="mt-2 fw-medium text-success">@Model.Price.ToString("C")</h4>
+                    </div>
+                </div>
+
+                <div class="row px-md-4 mt-5">
+                    <div class="col-sm-4 mb-3">
+                        <div class="p-3 border rounded-3 text-center bg-light h-100">
+                            <span class="d-block text-muted small text-uppercase mb-2">Category</span>
+                            <span class="badge border text-dark fw-normal px-3 py-2 bg-white">@Model.CategoryName</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-8 mb-3">
+                        <div class="p-4 border rounded-3 h-100 bg-light">
+                            <h6 class="text-muted text-uppercase mb-2 small border-bottom pb-2">Description</h6>
+                            <p class="mb-0 text-dark">@(string.IsNullOrEmpty(Model.Description) ? "No detailed description available for this product." : Model.Description)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer bg-white p-4 border-top text-end">
+                <a asp-action="GetAll" class="btn btn-link text-muted px-4 me-2 text-decoration-none">
+                    Back to Catalog
+                </a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-dark px-5">
+                    Edit Product
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

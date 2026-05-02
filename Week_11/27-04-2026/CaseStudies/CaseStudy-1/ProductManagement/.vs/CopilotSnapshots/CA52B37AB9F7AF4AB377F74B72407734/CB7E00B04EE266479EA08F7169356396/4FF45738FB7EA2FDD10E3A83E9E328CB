@@ -1,0 +1,55 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductManagement.DTOs;
+using ProductManagement.Repositories.Interfaces;
+
+namespace ProductManagement.Controllers
+{
+    public class ProductsController : Controller
+    {
+        private readonly IProductRepository _repo;
+        public ProductsController(IProductRepository repo)
+        {
+            _repo = repo;
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var data = await _repo.GetAllAsync();
+            return View(data);
+        }
+        
+        [HttpGet("Details/{id}")]
+        public async Task<IActionResult> Details(int id)
+        {
+            var data = await _repo.GetByIdAsync(id);
+            return data==null ? NotFound() : View(data);
+        }
+
+        [HttpGet("Create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create(ProductRequestDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                await _repo.CreateAsync(dto);
+                return RedirectToAction(nameof(GetAll));
+            }
+            return View(dto);
+        }
+
+        // We leave Update/Delete as API for now, or you can add GET views for them
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, ProductRequestDto dto)
+        => await _repo.UpdateAsync(id, dto) ? NoContent() : NotFound();
+
+        [HttpDelete("{id}")]
+         public async Task<IActionResult> Delete(int id)
+         => await _repo.DeleteAsync(id) ? NoContent() : NotFound();
+    }
+}

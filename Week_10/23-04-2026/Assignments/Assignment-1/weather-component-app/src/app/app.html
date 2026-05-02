@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Weather Component</h1>
+
+  <input
+    type="text"
+    placeholder="Enter city name"
+    [(ngModel)]="cityName"
+    (input)="onSearch()"
+    data-test-id="app-input"
+    class="city-input"
+  />
+
+  <div
+    *ngIf="matchedWeather"
+    data-test-id="weather-details"
+    class="weather-box"
+  >
+    <p data-test-id="output-temperature">
+      {{ matchedWeather.temperature }}
+    </p>
+
+    <p data-test-id="output-wind">
+      Wind: {{ matchedWeather.wind }}
+    </p>
+
+    <p data-test-id="output-humidity">
+      Humidity: {{ matchedWeather.humidity }}
+    </p>
+  </div>
+
+  <div
+    *ngIf="searched && !matchedWeather"
+    data-test-id="no-results"
+    class="no-result"
+  >
+    No Results Found
+  </div>
+</div>

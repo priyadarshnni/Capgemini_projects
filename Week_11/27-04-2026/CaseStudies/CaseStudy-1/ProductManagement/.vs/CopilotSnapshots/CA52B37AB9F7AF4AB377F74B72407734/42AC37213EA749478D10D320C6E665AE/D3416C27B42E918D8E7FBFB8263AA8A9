@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row align-items-center py-5">
+    <div class="col-lg-6 text-center text-lg-start">
+        <h1 class="display-3 fw-bold text-primary mb-3">Product Management</h1>
+        <p class="lead text-muted mb-4">A simple, modern, and comprehensive way to manage your catalog, product pricing, categorizations, and much more.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a asp-controller="Products" asp-action="GetAll" class="btn btn-primary btn-lg px-4 me-md-2 shadow"><i class="bi bi-collection me-2"></i>View Products</a>
+            <a asp-controller="Products" asp-action="Create" class="btn btn-outline-secondary btn-lg px-4 shadow-sm"><i class="bi bi-plus-circle me-2"></i>Add New</a>
+        </div>
+    </div>
+    <div class="col-lg-6 my-5 d-none d-lg-block">
+        <div class="card shadow border-0 bg-primary text-white p-5 rounded-4 text-center">
+            <i class="bi bi-box-seam display-1 mb-3 mx-auto mt-2"></i>
+            <h3>Manage At Scale</h3>
+            <p class="mb-0 text-white-50">High-performance catalog administration.</p>
+        </div>
+    </div>
+</div>

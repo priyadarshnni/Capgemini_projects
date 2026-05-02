@@ -1,0 +1,311 @@
+/* QUICK CODE REFERENCE */
+
+═══════════════════════════════════════════════════════════════════
+PROBLEM VISUALIZATION:
+═══════════════════════════════════════════════════════════════════
+
+Component Hierarchy:
+┌─────────────────────────────────────────┐
+│ AppComponent                            │
+│ (ChangeDetectionStrategy.Default)       │
+│                                         │
+│ userStats: UserStats = {                │
+│   score: 50,                            │
+│   level: 5,                             │
+│   achievements: [...]                   │
+│ }                                       │
+│                                         │
+│ [@Input]                                │
+│    ↓                                    │
+├─────────────────────────────────────────┤
+│ DashboardComponent                      │
+│ (ChangeDetectionStrategy.OnPush)        │
+│                                         │
+│ updateLocally() {                       │
+│   this.userStats.score = 100  ← Problem!│
+│   // ❌ View does NOT update            │
+│ }                                       │
+│                                         │
+│ [@Input]                                │
+│    ↓                                    │
+├─────────────────────────────────────────┤
+│ StatsComponent                          │
+│ (ChangeDetectionStrategy.Default)       │
+│                                         │
+│ ✓ View DOES update                      │
+│ (Shows score: 100)                      │
+└─────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+SOLUTION 1: markForCheck()
+═══════════════════════════════════════════════════════════════════
+
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `Score: {{ userStats.score }}`
+})
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  updateLocally() {
+    this.userStats.score = 100;
+    this.cdr.markForCheck();  // ← Schedule check in next cycle
+  }
+}
+
+MARK FOR CHECK BEHAVIOR:
+┌──────────────────────────┐
+│ updateLocally() {        │
+│   this.userStats.score   │
+│   = 100                  │
+│   markForCheck() ← Mark  │
+│ }                        │
+└──────────────────────────┘
+          ↓
+┌──────────────────────────┐
+│ Next change detection    │
+│ cycle runs...            │
+└──────────────────────────┘
+          ↓
+┌──────────────────────────┐
+│ ✓ View updates!          │
+│ Score: 100               │
+└──────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+SOLUTION 2: detectChanges()
+═══════════════════════════════════════════════════════════════════
+
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `Score: {{ userStats.score }}`
+})
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  updateLocally() {
+    this.userStats.score = 100;
+    this.cdr.detectChanges();  // ← Run immediately
+  }
+}
+
+DETECT CHANGES BEHAVIOR:
+┌──────────────────────────┐
+│ updateLocally() {        │
+│   this.userStats.score   │
+│   = 100                  │
+│   detectChanges() ← Run  │
+│ }                        │
+└──────────────────────────┘
+          ↓
+┌──────────────────────────┐
+│ Change detection runs    │
+│ IMMEDIATELY (blocking)   │
+└──────────────────────────┘
+          ↓
+┌──────────────────────────┐
+│ ✓ View updates right now!│
+│ Score: 100               │
+└──────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+SOLUTION 3: Immutable Pattern (Object Spread)
+═══════════════════════════════════════════════════════════════════
+
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `Score: {{ userStats.score }}`
+})
+export class DashboardComponent {
+  @Input() userStats!: UserStats;
+
+  // NO ChangeDetectorRef needed!
+  
+  updateLocally() {
+    // Create NEW object with updated value
+    this.userStats = {
+      ...this.userStats,         // Copy all properties
+      score: 100                 // Override score
+    };
+    // ✓ View updates automatically (new reference!)
+  }
+}
+
+IMMUTABLE PATTERN BEHAVIOR:
+┌──────────────────────────────────┐
+│ OLD: this.userStats.score = 100  │
+│ (same reference)                 │
+│ userStats ─────→ { score: 100 }  │
+│            address #12345        │
+│ ❌ OnPush doesn't detect!        │
+└──────────────────────────────────┘
+
+┌──────────────────────────────────┐
+│ NEW: this.userStats = {           │
+│   ...this.userStats,             │
+│   score: 100                     │
+│ }                                │
+│ (new reference!)                 │
+│ userStats ─────→ { score: 100 }  │
+│            address #54321        │
+│ ✓ OnPush detects change!         │
+└──────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+COMPARISON: WHEN TO USE EACH
+═══════════════════════════════════════════════════════════════════
+
+┌─────────────────────┬──────────────┬──────────────┬───────────┐
+│ Solution            │ When         │ Trigger Type │ Best For  │
+├─────────────────────┼──────────────┼──────────────┼───────────┤
+│ markForCheck()      │ Batch        │ Scheduled    │ Multiple  │
+│                     │ updates      │              │ mutations │
+├─────────────────────┼──────────────┼──────────────┼───────────┤
+│ detectChanges()     │ Single       │ Immediate    │ One quick │
+│                     │ update       │              │ update    │
+├─────────────────────┼──────────────┼──────────────┼───────────┤
+│ Immutable Pattern   │ Any case     │ Automatic    │ Best      │
+│ (New Reference)     │              │              │ practice  │
+└─────────────────────┴──────────────┴──────────────┴───────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+REAL CODE EXAMPLES
+═══════════════════════════════════════════════════════════════════
+
+EXAMPLE 1: Single field update
+══════════════════════════════
+// Immutable (best):
+updateScore(newScore: number) {
+  this.userStats = { ...this.userStats, score: newScore };
+}
+
+// Or detectChanges if you must mutate:
+updateScore(newScore: number) {
+  this.userStats.score = newScore;
+  this.cdr.detectChanges();
+}
+
+
+EXAMPLE 2: Nested object update
+═════════════════════════════════
+// OLD (wrong - doesn't work with OnPush):
+updateAchievements(newAchlevements: string[]) {
+  this.userStats.achievements = newAchievements;
+  // ❌ Same reference, OnPush won't detect
+}
+
+// CORRECT (immutable):
+updateAchievements(newAchievements: string[]) {
+  this.userStats = {
+    ...this.userStats,           // Copy all
+    achievements: newAchievements // Override nested
+  };
+  // ✓ New reference detected by OnPush
+}
+
+// CORRECT (if you must mutate):
+updateAchievements(newAchievements: string[]) {
+  this.userStats.achievements = newAchievements;
+  this.cdr.detectChanges();
+}
+
+
+EXAMPLE 3: Array operations with nested updates
+════════════════════════════════════════════════
+
+// Add achievement - IMMUTABLE WAY:
+addAchievement(achievement: string) {
+  this.userStats = {
+    ...this.userStats,
+    achievements: [...this.userStats.achievements, achievement]
+  };
+}
+
+// Remove achievement - IMMUTABLE WAY:
+removeAchievement(index: number) {
+  this.userStats = {
+    ...this.userStats,
+    achievements: this.userStats.achievements.filter((_, i) => i !== index)
+  };
+}
+
+
+EXAMPLE 4: API response handling
+═════════════════════════════════
+// Best practice:
+loadUserData() {
+  this.api.getUserStats().subscribe(stats => {
+    this.userStats = stats;  // New reference from API
+    // ✓ Automatically detected by OnPush
+  });
+}
+
+
+═══════════════════════════════════════════════════════════════════
+ANSWER SUMMARY FOR MARKS:
+═══════════════════════════════════════════════════════════════════
+
+QUESTION A (3 marks):
+─────────────────────
+Why DashboardComponent doesn't update?
+
+Key points:
+✓ OnPush strategy only detects reference changes
+✓ Mutating properties doesn't create new reference
+✓ No change detection triggers without explicit call
+✓ View doesn't re-evaluate bindings
+
+Mark breakdown:
+- Reference vs mutation difference: 1 mark
+- OnPush behavior explanation: 1 mark
+- Why no detection in this case: 1 mark
+
+
+QUESTION B (3 marks):
+─────────────────────
+Why StatsComponent shows updated value?
+
+Key points:
+✓ Default strategy detects all changes
+✓ Default strategy runs frequently
+✓ Checks actual values in bindings
+✓ Detects mutations automatically
+
+Mark breakdown:
+- Default strategy behavior: 1 mark
+- Difference from OnPush: 1 mark
+- Why mutation is detected: 1 mark
+
+
+QUESTION C (4 marks):
+─────────────────────
+How to fix without changing to Default?
+
+Key points:
+✓ Use ChangeDetectorRef.markForCheck(): 1 mark
+✓ Use ChangeDetectorRef.detectChanges(): 1 mark
+✓ Use immutable pattern (new reference): 1 mark
+✓ Explanation of at least one solution: 1 mark
+
+Total: 10 marks (Full marks for this assignment)
+
+
+═══════════════════════════════════════════════════════════════════
