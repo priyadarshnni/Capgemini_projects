@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sahil Kumrawat\\Downloads\\All capg new\\EMS\\EMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|EMS.InMemoryAPI\\EMS.InMemoryAPI.csproj|c:\\users\\sahil kumrawat\\downloads\\all capg new\\ems\\ems\\ems.inmemoryapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|EMS.InMemoryAPI\\EMS.InMemoryAPI.csproj|solutionrelative:ems.inmemoryapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sahil Kumrawat\\Downloads\\All capg new\\EMS\\EMS\\EMS.InMemoryAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "EMS.InMemoryAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sahil Kumrawat\\Downloads\\All capg new\\EMS\\EMS\\EMS.InMemoryAPI\\appsettings.json",
+              "RelativeToolTip": "EMS.InMemoryAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-02T10:27:09.529Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
