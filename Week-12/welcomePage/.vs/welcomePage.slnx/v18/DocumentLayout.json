@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sahil Kumrawat\\welcomePage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFFE3AB-4B98-4951-9556-3E9B1410CC3E}|welcomePage.csproj|c:\\users\\sahil kumrawat\\welcomepage\\pages\\welcome.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFFE3AB-4B98-4951-9556-3E9B1410CC3E}|welcomePage.csproj|solutionrelative:pages\\welcome.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFFE3AB-4B98-4951-9556-3E9B1410CC3E}|welcomePage.csproj|c:\\users\\sahil kumrawat\\welcomepage\\pages\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6BFFE3AB-4B98-4951-9556-3E9B1410CC3E}|welcomePage.csproj|solutionrelative:pages\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "welcome.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Sahil Kumrawat\\welcomePage\\Pages\\welcome.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\welcome.cshtml.cs",
+              "ToolTip": "C:\\Users\\Sahil Kumrawat\\welcomePage\\Pages\\welcome.cshtml.cs",
+              "RelativeToolTip": "Pages\\welcome.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T05:56:33.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "welcome.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sahil Kumrawat\\welcomePage\\Pages\\welcome.cshtml",
+              "RelativeDocumentMoniker": "Pages\\welcome.cshtml",
+              "ToolTip": "C:\\Users\\Sahil Kumrawat\\welcomePage\\Pages\\welcome.cshtml",
+              "RelativeToolTip": "Pages\\welcome.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T05:55:59.702Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

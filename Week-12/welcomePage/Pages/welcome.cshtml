@@ -1,0 +1,16 @@
+﻿@page
+@model WelcomeModel
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div style="text-align:center; margin-top:50px;">
+    <h1>Welcome to My ASP.NET App 🎉</h1>
+
+    <p>Hello, @Model.UserName!</p>
+
+    <form method="post">
+        <input type="text" name="UserName" placeholder="Enter your name" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
