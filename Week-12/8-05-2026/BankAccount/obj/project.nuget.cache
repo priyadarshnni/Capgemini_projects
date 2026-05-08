@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "xRgUKerE/UI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sahil Kumrawat\\Downloads\\All capg new\\Week-12\\8-05-2026\\BankAccount\\BankAccountHierarchy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sahil Kumrawat\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sahil Kumrawat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sahil Kumrawat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sahil Kumrawat\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
+  ],
+  "logs": []
+}
